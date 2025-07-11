@@ -15,7 +15,7 @@ pip install -e .
 ### 基本使用
 
 ```python
-from MakeMore import MakeMoreAgent
+from MakeMore.make_more import MakeMoreAgent
 import asyncio
 
 async def main():
