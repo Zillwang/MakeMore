@@ -1,0 +1,68 @@
+
+#serper_api_key: "8916d7a7c416b05250df151171e707fe7f574558" #测试key
+serper_api_key: "fa3ae685e31afb390b0bfc45d6a8575522bb4d71" #web部署key 5w quota
+
+access_key_id : "E206DF16D0BC4B18B608659A882CF5C7"         # 王宇航的nova账号
+secret_access_key : "92037E83B9DE49F8A421553A1E143064"     # 王宇航的nova账号
+
+# embedding_url: "http://10.198.6.242:7008/v1/qd"
+embedding_url: "http://10.198.34.144:8080/embed"
+bocha_search_api_key: "sk-7ade81ffdc424e2bba6322d070e3b27b"
+bocha_search_api_url: "https://api.bochaai.com/v1/ai-search"
+
+# rerank_url: "http://10.198.34.144:8100/rerank"
+rerank_url: "http://10.198.34.144:8101/rerank" #8k
+
+##sougou_full
+Dojo_ak : "d639997d-9765-4b4c-bebf-4652ed9108d7"  # test账号
+Dojo_sk : "e1b7dd5c-d9ea-4240-a838-14dc40bb8b16"
+
+## sougou
+sougou_url: "http://10.112.97.25:32015/custom"
+bing_url: "https://genaiapi.cloudsway.net/YHuWCuVFiUGBulqb/bing/v7.0/search"
+
+sogou_bare_pid: "search_bfaab0c00a6647d3d6615b39054e8871"
+sogou_bare_key: "0bb627e2d5d9e0b1b7db43ee50c9823e"
+
+sogou_bare_url: "https://m.sogou.com/search4shangtang"
+sogou_full_bare_url: "https://m.sogou.com/search4shiyanshi"
+
+
+## llm-keys
+models:
+  gpt-4o:
+    api_key: "sk-qNsqAuheniHvXDGe8f70D957B1554a30A02fDe60261eDaA1"
+    base_url: "http://cubic.sensetime.com:8457/v1"
+    model: "gpt-4o"
+  gpt-4o-mini:
+    api_key: "sk-qNsqAuheniHvXDGe8f70D957B1554a30A02fDe60261eDaA1"
+    base_url: "http://cubic.sensetime.com:8457/v1"
+    model: "gpt-4o-mini"
+  deepseek-chat:
+    api_key: "sk-e05cd2a70e3841eeaa89ad88fa499f97"
+    base_url: "https://api.deepseek.com/"
+    model: "deepseek-chat"
+  qwen2-72b-instruct-fp16:
+    api_key: "EMPTY"
+    base_url: "http://101.230.144.204:17888/v1"
+    model: "/mnt/afs/share/model/Qwen/Qwen2-72B-Instruct"
+  qwen2-72b-instruct-int8:
+    api_key: "EMPTY"
+    base_url: "http://101.230.144.204:16908/v1"
+    model: "/mnt/afs/share/model/Qwen/Qwen2-72B-Instruct-GPTQ-Int8"
+  qwen2-72b-instruct-int4:
+    api_key: "EMPTY"
+    base_url: "http://101.230.144.204:16888/v1"
+    model: "/mnt/afs/share/model/Qwen/Qwen2-72B-Instruct-GPTQ-Int4"
+  senseauto-chat-v0.2.0:
+    api_key: "ab9edab4-8780-11ef-a760-cbde10bdf191"
+    base_url: "http://101.230.144.204:18055/v1"
+    model: "/mnt/afs/gaomengya/model/senseauto-chat-v0.2.0"
+  rewrite-sft-1-gpu:
+    api_key: "EMPTY"
+    base_url: "http://101.230.144.204:8998/v1"
+    model: "/mnt/afs/wangziliang1/deploy_weights/1gpu/hf_model"
+  rewrite-sft-8-gpu:
+    api_key: "EMPTY"
+    base_url: "http://101.230.144.204:12333/v1"
+    model: "/mnt/afs/wangziliang1/deploy_weights/8gpu/hf_model"
