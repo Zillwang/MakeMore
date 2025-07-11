@@ -4,8 +4,10 @@ MakeMore是一个灵活的AI助手工具，支持文本和图片API调用。
 
 ## 安装
 
+
 ```bash
-pip install make-more -e
+cd MakeMore
+pip install -e
 ```
 
 ## 快速开始
