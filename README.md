@@ -7,7 +7,7 @@ MakeMore是一个灵活的AI助手工具，支持文本和图片API调用。
 
 ```bash
 cd MakeMore
-pip install -e
+pip install -e .
 ```
 
 ## 快速开始
@@ -15,7 +15,7 @@ pip install -e
 ### 基本使用
 
 ```python
-from MakeMore import MakeMoreAgent
+from MakeMore.make_more import MakeMoreAgent
 import asyncio
 
 async def main():
