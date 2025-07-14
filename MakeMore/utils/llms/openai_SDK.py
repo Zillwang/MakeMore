@@ -22,8 +22,6 @@ class OpenAI_LLM(LLMBase):
         self.base_url = url
         self.key = key
         self.stop_words = stop_words
-        print(self.base_url)
-        print(self.key)
         self.client = AsyncOpenAI(
             api_key=self.key,
             base_url=self.base_url
@@ -49,7 +47,8 @@ class OpenAI_LLM(LLMBase):
                 yield char
 
 
-    async def yield_chat(self, messages: List[Dict[str, str]], stop_words: Optional[List[str]] = None) -> AsyncIterable[str]:
+    async def yield_chat(self, messages: List[Dict[str, str]], stop_words: Optional[List[str]] = None,reasoning:bool=False) -> AsyncIterable[str]:
+        
         result = await self.client.chat.completions.create(
             model=self.model_name,
             temperature=self.temp,
@@ -61,10 +60,27 @@ class OpenAI_LLM(LLMBase):
             max_tokens=4096,
         )
         # logger.info("---------------------yield_openai_call 调用openai---------------------")
+        reasoning_mode = False
+        content_mode = False
+        
         async for chunk in result:
-            if chunk is not None and chunk.choices[0].delta.content is not None:
-                char = chunk.choices[0].delta.content
-                yield char
+            if chunk is not None:
+                delta = chunk.choices[0].delta
+                # 安全地检查 reasoning_content 属性是否存在
+                has_reasoning = hasattr(delta, 'reasoning_content') and delta.reasoning_content is not None
+                
+                if has_reasoning:
+                    if not reasoning_mode:
+                        reasoning_mode = True
+                        yield "<think>"
+                    yield delta.reasoning_content
+                elif delta.content is not None:
+                    if reasoning_mode and not content_mode:
+                        reasoning_mode = False
+                        content_mode = True
+                        yield "</think>"
+                    char = delta.content
+                    yield char
 
     async def chat(self, messages: List[Dict[str, str]], stop_words: Optional[List[str]] = None, stream=False):
         self.stream = stream

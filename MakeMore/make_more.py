@@ -16,8 +16,6 @@ class MakeMoreAgent:
             system_prompt
     ) -> None:
         self.system_prompt = system_prompt
-        print(llm_configs)
-
         self.llm = OpenAI_LLM(
             temp=llm_configs.get("temp", 0.7),
             topp=llm_configs.get("topp", 0.9),
@@ -50,7 +48,7 @@ class MakeMoreAgent:
         if image_path and os.path.exists(image_path):
             base64_image = self._encode_image_to_base64(image_path)
             content = [
-                {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}},
+                {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{base64_image}"}},
                 {"type": "text", "text": query}
             ]
             messages.append({"role": "user", "content": content})
