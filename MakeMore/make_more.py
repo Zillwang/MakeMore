@@ -114,7 +114,7 @@ if __name__ == "__main__":
         "temp": 0.7,
         "topp": 0.9,
         "model_name": "Chat",
-        "base_url": "http://111.31.225.50:12811/v1",
+        "base_url": "yours",
         "key": "EMPTY",
         "stop_words": []
     }
